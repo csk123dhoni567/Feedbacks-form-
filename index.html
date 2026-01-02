@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Teacher Feedback</title>
+    <title>Teacher Feedback Form</title>
 
     <style>
         body {
@@ -72,12 +72,13 @@
     <h2>Teacher Feedback</h2>
 
     <form action="https://formsubmit.co/lalithsaivardhan@gmail.com" method="POST">
-        <!-- Optional settings -->
+        <!-- Required hidden inputs -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_subject" value="Teacher Feedback">
 
         <label>Teacher Name</label>
-        <select name="Teacher">
+        <select name="Teacher" required>
+            <option disabled selected>Select Teacher</option>
             <option>Chammu Miss</option>
             <option>Anil Sir</option>
             <option>Harini Mam</option>
@@ -89,7 +90,8 @@
         </select>
 
         <label>Rating</label>
-        <select name="Rating">
+        <select name="Rating" required>
+            <option disabled selected>Select Rating</option>
             <option>Excellent</option>
             <option>Very Good</option>
             <option>Good</option>
@@ -98,10 +100,9 @@
         </select>
 
         <label>Feedback</label>
-        <textarea name="Feedback" placeholder="Write your feedback..."></textarea>
+        <textarea name="Feedback" placeholder="Write your feedback..." required></textarea>
 
         <button type="submit">Submit Feedback</button>
-
     </form>
 </div>
 
