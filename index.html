@@ -2,86 +2,109 @@
 <html>
 <head>
     <title>Teacher Feedback</title>
+
     <style>
         body {
-            font-family: Arial;
-            background: #eef2ff;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .box {
-            width: 400px;
-            margin: 40px auto;
-            padding: 20px;
+
+        .form-box {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #aaa;
+            padding: 25px;
+            width: 360px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
+
         h2 {
             text-align: center;
+            color: #333;
+            margin-bottom: 20px;
         }
-        select, textarea, button {
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, textarea {
             width: 100%;
-            padding: 8px;
-            margin: 10px 0;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
         }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
         button {
-            background: #4a6cff;
+            width: 100%;
+            margin-top: 18px;
+            padding: 12px;
+            background: #667eea;
             color: white;
-            border: none;
-            border-radius: 5px;
             font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a67d8;
         }
     </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h2>Teacher Feedback Form</h2>
+<div class="form-box">
+    <h2>Teacher Feedback</h2>
 
-    <label>Teacher Name</label>
-    <select id="teacher">
-        <option>Chammu Miss</option>
-        <option>Anil Sir</option>
-        <option>Harini Mam</option>
-        <option>Pavani</option>
-        <option>Mallikarjuna</option>
-        <option>Ramesh</option>
-        <option>Chandra</option>
-        <option>Umasankar</option>
-    </select>
+    <form action="https://formsubmit.co/ranchim70@gmail.com" method="POST">
 
-    <label>Rating</label>
-    <select>
-        <option>Excellent</option>
-        <option>Very Good</option>
-        <option>Good</option>
-        <option>Average</option>
-        <option>Poor</option>
-    </select>
+        <!-- Optional settings -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Teacher Feedback">
 
-    <label>Feedback</label>
-    <textarea id="feedback" rows="4"></textarea>
+        <label>Teacher Name</label>
+        <select name="Teacher">
+            <option>Chammu Miss</option>
+            <option>Anil Sir</option>
+            <option>Harini Mam</option>
+            <option>Pavani</option>
+            <option>Mallikarjuna</option>
+            <option>Ramesh</option>
+            <option>Chandra</option>
+            <option>Umasankar</option>
+        </select>
 
-    <button onclick="submitFeedback()">Submit</button>
+        <label>Rating</label>
+        <select name="Rating">
+            <option>Excellent</option>
+            <option>Very Good</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+        </select>
+
+        <label>Feedback</label>
+        <textarea name="Feedback" placeholder="Write your feedback..."></textarea>
+
+        <button type="submit">Submit Feedback</button>
+
+    </form>
 </div>
-
-<script>
-function submitFeedback() {
-    alert("Feedback submitted successfully!");
-
-    let teacherSelect = document.getElementById("teacher");
-    let currentIndex = teacherSelect.selectedIndex;
-
-    // move to next teacher
-    if (currentIndex < teacherSelect.options.length - 1) {
-        teacherSelect.selectedIndex = currentIndex + 1;
-    } else {
-        teacherSelect.selectedIndex = 0; // start again
-    }
-
-    document.getElementById("feedback").value = "";
-}
-</script>
 
 </body>
 </html>
